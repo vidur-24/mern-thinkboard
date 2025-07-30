@@ -5,17 +5,20 @@ import { connectDB } from './config/db.js';
 import dotenv from "dotenv"; // to use env variables
 import rateLimiter from "./middleware/rateLimiter.js"
 import cors from "cors"
+import path, { join } from "path"
 
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+const __dirname = path.resolve() // for combining backend and frontend
 
-
+if(process.env.NODE_ENV !== "production"){ // cors used only if 2 diff domains for front and backend i.e during dev
+    app.use(cors({ // for cors error
+        origin:"http://localhost:5173",
+    }));
+}
 // middleware
-app.use(cors({ // for cors error
-    origin:"http://localhost:5173",
-}));
 app.use(express.json()); // this middleware will parse json bodies : req.body
 app.use(rateLimiter);
 
@@ -26,6 +29,15 @@ app.use(rateLimiter);
 // });
 
 app.use("/api/notes", notesRoutes);
+
+if(process.env.NODE_ENV === "production"){ // do only if in render (deployed)
+    app.use(express.static(path.join(__dirname, "../frontend/dist")))
+
+    app.get("*", (req, res) => {
+        res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
+    })
+}
+
 // app.use("/api/product", productRoutes); // can create another routes in future
 // app.use("/api/post", postRoutes);
 // app.use("/api/payment", paymentRoutes);
