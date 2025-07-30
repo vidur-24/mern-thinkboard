@@ -1,3 +1,0 @@
-1. Endpoint = it is a combination of a URL and an HTTP method that lets the client interact with a specific resource.
-2. Route = it is a path that the server listens to, which can be associated with one or more endpoints.
-3. Mongoose = it is a JavaScript library for Node.js that provides a way to interact with MongoDB, a NoSQL database
