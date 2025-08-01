@@ -26,34 +26,36 @@
 
 ## 📁 Project Structure
 
+```text
 ThinkBoard/
 ├── backend/
-│ ├── src/
-│ │ ├── config/ # DB config
-│ │ ├── controllers/ # Request handlers
-│ │ ├── middleware/ # Custom middlewares
-│ │ ├── models/ # Mongoose schemas
-│ │ └── routes/ # API route definitions
-│ ├── server.js # Entry point
-│ ├── .env # Environment variables
-│ └── package.json
+│   ├── src/
+│   │   ├── config/         # DB config
+│   │   ├── controllers/    # Request handlers
+│   │   ├── middleware/     # Custom middlewares
+│   │   ├── models/         # Mongoose schemas
+│   │   └── routes/         # API route definitions
+│   ├── server.js           # Entry point
+│   ├── .env                # Environment variables
+│   └── package.json
 │
 ├── frontend/
-│ ├── public/ # Static assets
-│ ├── src/
-│ │ ├── components/ # Reusable UI elements
-│ │ ├── lib/ # Utility functions
-│ │ ├── pages/ # Page-level components
-│ │ ├── App.jsx # Main App component
-│ │ ├── index.css
-│ │ └── main.jsx # Entry point for React
-│ ├── index.html
-│ ├── package.json
-│ └── vite.config.js
+│   ├── public/             # Static assets
+│   ├── src/
+│   │   ├── components/     # Reusable UI elements
+│   │   ├── lib/            # Utility functions
+│   │   ├── pages/          # Page-level components
+│   │   ├── App.jsx         # Main App component
+│   │   ├── index.css
+│   │   └── main.jsx        # Entry point for React
+│   ├── index.html
+│   ├── package.json
+│   └── vite.config.js
 │
 ├── .gitignore
 ├── notes.txt
 └── README.md
+```
 
 ---
 
